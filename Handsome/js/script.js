@@ -84,15 +84,32 @@ monogatari.characters({
 	},
 	'Cee': {
 		name: 'Cee',
-		color: ''
+		color: '#5bcaff',
+		sprites: {
+			normal: 'c.png'
+		}
 
 	},
 	'Peethon': {
 		name: 'Peethon',
 		color: '#5bcaff',
 		sprites: {
-			normal: 'peethon.png'
+			normal: 'peethon.png',
+			think: 'peethon_think.png'
+
 		}
+	},
+	'Windoe': {
+		name: 'Windoe',
+		color: '#5bcaff',
+		sprites: {
+			normal: 'windows.png',
+			hand: 'windows_hand.png'
+		}
+	},
+	'you': {
+		name: '{{player.name}}', // Dynamic name based on player input
+		color: '#ffb86c'
 	}
 });
 
@@ -126,7 +143,7 @@ monogatari.script({
 			} // End of 'Input' object
 		},
 
-		'y Hi {{player.name}} Welcome to Monogatari!',
+		'y Hi {{player.name}}! Welcome to your new hell!',
 		'jump NewScene' // Automatically jump to the 'NewScene' after input
 	],
 
@@ -136,17 +153,38 @@ monogatari.script({
 		'show scene office_background with fadeIn',
 		'show character Peethon normal at center with fadeIn',
 
-		'Peethon This is the new scene you wanted to explore!',
+		'Peethon GOOD MORNING!! My dear intern has awoken!',
+		'you h-huh?',
+
+
+		// Fade out Peethon before Windoe appears
+		'hide character Peethon',
+
+		// Show Windoe on the left side of the screen
+		'show character Windoe normal with fadeIn',
+
+		'Windoe and not a moment too soon.',
+		// Change Windoe's sprite to the "hand" version
+		'show character Windoe hand',
+
+		'Windoe:hand how are you feeling?',
+
+		'you ah.. WHAT IS GOING ON?',
+
+		"Windoe:hand You look like you are about to faint. Make sure you are back on your feet before today's PR review.",
+
+		'you uwah... what the hell. I just want a normal life...',
+
 		'y What would you like to do next?',
 		{
 			'Choice': {
-				'Dialog': 'y Continue or End?',
+				'Dialog': 'y Keep Listening to this Insanity or Run Away?',
 				'Continue': {
-					'Text': 'Continue',
+					'Text': 'Keep Listening',
 					'Do': 'jump Yes'
 				},
 				'End': {
-					'Text': 'End',
+					'Text': 'Run Away',
 					'Do': 'end'
 				}
 			} // End of 'Choice' object
@@ -154,17 +192,36 @@ monogatari.script({
 	],
 
 	'Yes': [
-		'y Thats awesome!',
-		'y Then you are ready to go ahead and create an amazing Game!',
-		'y I can’t wait to see what story you’ll tell!',
+		'show scene office_background',
+
+		'you (thinking) bro...i just want to go home',
+		"you hahaha... so, what's the deal with this? One moment I was at my cubicle at Am*zon, and all of a sudden I am here.",
+
+		'show character Peethon think at center with fadeIn',
+		"Peethon Am*zon huh...I think Linux's worked there in the past.",
+		'you huh? Why is bro named after an operating system...',
+
+		'Peethon think think nothing of it.',
+
+		'hide character Peethon',
+		'show character Windoe normal',
+
+		'Windoe You ready to start your tasks?',
+
+		'you (thinking) This is weird...',
+
+		'show character Windoe hand',
+		'Windoe Also, I think we have a better return offer rate than Am*azon.',
+		"you OOH! I'm IN!",
+
 		'end'
 	],
 
 	'No': [
-		'y You can do it now.',
+		'y lmfaooo leaving already?',
 		'show message Help',
-		'y Go ahead and create an amazing Game!',
-		'y I can’t wait to see what story you’ll tell!',
+		'y see you next time!!',
+		'y who makes a game engine in javascript bro',
 		'end'
 	]
 });

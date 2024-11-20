@@ -10,7 +10,7 @@
 'use strict';
 /* global Monogatari */
 
-const monogatari  = Monogatari.default;
+const monogatari = Monogatari.default;
 
 monogatari.settings({
 
@@ -133,7 +133,7 @@ monogatari.settings({
 });
 
 // Initial Settings
-monogatari.preferences ({
+monogatari.preferences({
 
 	// Initial Language for Multilanguage Games or for the Default GUI Language.
 	'Language': 'English',
@@ -151,7 +151,7 @@ monogatari.preferences ({
 	'Resolution': '800x600',
 
 	// Speed at which dialog text will appear
-	'TextSpeed': 20,
+	'TextSpeed': 10,
 
 	// Speed at which the Auto Play feature will show the next statement
 	// It is measured in seconds and starts counting after the text is
